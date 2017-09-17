@@ -1,2 +1,2 @@
-# arcpy
+# Arcpy
 Arcpy Python scripts 
