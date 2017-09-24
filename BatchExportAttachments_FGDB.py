@@ -1,3 +1,5 @@
+#This script was created for the purpose of exporting pictures taken from Esri's Collector mobile app and populating field in a featureclass with exported picture's path.    
+
 import arcpy
 from arcpy import da
 import os
