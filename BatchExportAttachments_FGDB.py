@@ -1,4 +1,4 @@
-#This script was created for the purpose of exporting pictures taken from Esri's Collector mobile app and populating field in a featureclass with exported picture's path.    
+#This script was created for the purpose of exporting pictures taken from Esri's Collector mobile app and populate fields in featureclasses with exported picture's path.    
 
 import arcpy
 from arcpy import da
@@ -27,10 +27,10 @@ for fc in featureClass2:
         edit.startEditing(False, True)
         edit.startOperation()
         with arcpy.da.UpdateCursor(fc, ['Picture1','Picture']) as cursor:
-            for row in cursor:
-                row[1] = row[0]
-                cursor.updateRow(row)
-                del row
+            for item in cursor:
+                item[1] = item[0]
+                cursor.updateitem(item)
+                del item
         edit.stopOperation()
         edit.stopEditing(True)
     elif "Culvert_Line" in fc:
@@ -40,10 +40,10 @@ for fc in featureClass2:
         edit.startEditing(False, True)
         edit.startOperation()
         with arcpy.da.UpdateCursor(fc, ['Picture1','Picture']) as cursor:
-            for row in cursor:
-                row[1] = row[0]
-                cursor.updateRow(row)
-                del row
+            for item in cursor:
+                item[1] = item[0]
+                cursor.updateitem(item)
+                del item
         edit.stopOperation()
         edit.stopEditing(True)
     elif "Speed_Bump" in fc:
@@ -53,10 +53,10 @@ for fc in featureClass2:
         edit.startEditing(False, True)
         edit.startOperation()
         with arcpy.da.UpdateCursor(fc, ['Picture1','Picture']) as cursor:
-            for row in cursor:
-                row[1] = row[0]
-                cursor.updateRow(row)
-                del row
+            for item in cursor:
+                item[1] = item[0]
+                cursor.updateitem(item)
+                del item
         edit.stopOperation()
         edit.stopEditing(True)
     elif "Bridge" in fc:
@@ -66,10 +66,10 @@ for fc in featureClass2:
         edit.startEditing(False, True)
         edit.startOperation()
         with arcpy.da.UpdateCursor(fc, ['Picture1','Picture']) as cursor:
-            for row in cursor:
-                row[1] = row[0]
-                cursor.updateRow(row)
-                del row
+            for item in cursor:
+                item[1] = item[0]
+                cursor.updateitem(item)
+                del item
         edit.stopOperation()
         edit.stopEditing(True)
 
@@ -84,10 +84,10 @@ for fc in featureClass2:
     edit.startEditing(False, True)
     edit.startOperation()
     with arcpy.da.UpdateCursor(tableAttach, ['ATTACHMENTID','ATTACHMENTID1']) as cursor:
-        for row in cursor:
-            row[1] = row[0]
-            cursor.updateRow(row)
-            del row
+        for item in cursor:
+            item[1] = item[0]
+            cursor.updateitem(item)
+            del item
     edit.stopOperation()
     edit.stopEditing(True)
     arcpy.JoinField_management(fc, "GlobalID", tableAttach, "REL_GLOBALID")
@@ -117,10 +117,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Bridge" in fc:
@@ -134,10 +134,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Communication" in fc:
@@ -151,10 +151,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Dump_Station" in fc:
@@ -168,10 +168,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Electrical_Point" in fc:
@@ -185,10 +185,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Firepit_and_BBQ" in fc:
@@ -202,10 +202,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Fuel_Supply" in fc:
@@ -219,10 +219,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Gates" in fc:
@@ -236,10 +236,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Loading_Ramp" in fc:
@@ -253,10 +253,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Recreation_Point" in fc:
@@ -270,10 +270,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Sign_Advisory_and_Wildlife" in fc:
@@ -287,10 +287,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Sign_AreaEntry_and_SmallGuide" in fc:
@@ -304,10 +304,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Sign_CampsiteMarker_and_RAP" in fc:
@@ -321,10 +321,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Sign_ParkID_and_Boundary" in fc:
@@ -338,10 +338,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Sign_Parking_and_Traffic" in fc:
@@ -355,10 +355,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Sign_Symbol_Trail_WalkUpMultPnl" in fc:
@@ -372,10 +372,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Site_Features" in fc:
@@ -389,10 +389,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Stairs" in fc:
@@ -406,10 +406,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Waste_Disposal" in fc:
@@ -423,10 +423,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Wastewater_Point" in fc:
@@ -440,10 +440,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Water_Facility" in fc:
@@ -457,10 +457,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Water_Point" in fc:
@@ -474,10 +474,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
             elif "Culvert_Line" in fc:
                 attachment = item[0]
@@ -490,10 +490,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Erosion_Slope_Control" in fc:
@@ -507,10 +507,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Fence_and_Railing" in fc:
@@ -524,10 +524,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Road" in fc:
@@ -541,10 +541,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Speed_Bump" in fc:
@@ -558,10 +558,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Campsite" in fc:
@@ -575,10 +575,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Building" in fc:
@@ -592,10 +592,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Parking_Area" in fc:
@@ -609,10 +609,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Platform" in fc:
@@ -626,10 +626,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
             elif "Recreation_Area" in fc:
                 attachment = item[0]
@@ -642,10 +642,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
 
 
             elif "Wastewater_Area" in fc:
@@ -659,10 +659,10 @@ for fc in featureClass2:
                 del attachment
 
                 with arcpy.da.UpdateCursor(fc, ['ATT_NAME', 'ATTACHMENTID1','FCname','Picture'],"REL_GLOBALID IS NOT NULL") as cursor:
-                    for row in cursor:
-                        row[3] = pictureLocation + parkName + "\\" +  row[2] + "_ATT" + row[1] + "_" + row[0]
-                        cursor.updateRow(row)
-                        del row
+                    for item in cursor:
+                        item[3] = pictureLocation + parkName + "\\" +  item[2] + "_ATT" + item[1] + "_" + item[0]
+                        cursor.updateitem(item)
+                        del item
         edit.stopOperation()
         edit.stopEditing(True)
 
@@ -681,10 +681,10 @@ for fc in featureClass2:
         edit.startEditing(False, True)
         edit.startOperation()
         with arcpy.da.UpdateCursor(fc, ['Picture1','Picture']) as cursor:
-            for row in cursor:
-                row[0] = row[1]
-                cursor.updateRow(row)
-                del row
+            for item in cursor:
+                item[0] = item[1]
+                cursor.updateitem(item)
+                del item
         edit.stopOperation()
         edit.stopEditing(True)
         arcpy.DeleteField_management(fc, "Picture")
@@ -694,10 +694,10 @@ for fc in featureClass2:
         edit.startEditing(False, True)
         edit.startOperation()
         with arcpy.da.UpdateCursor(fc, ['Picture1','Picture']) as cursor:
-            for row in cursor:
-                row[0] = row[1]
-                cursor.updateRow(row)
-                del row
+            for item in cursor:
+                item[0] = item[1]
+                cursor.updateitem(item)
+                del item
         edit.stopOperation()
         edit.stopEditing(True)
         arcpy.DeleteField_management(fc, "Picture")
@@ -707,10 +707,10 @@ for fc in featureClass2:
         edit.startEditing(False, True)
         edit.startOperation()
         with arcpy.da.UpdateCursor(fc, ['Picture1','Picture']) as cursor:
-            for row in cursor:
-                row[0] = row[1]
-                cursor.updateRow(row)
-                del row
+            for item in cursor:
+                item[0] = item[1]
+                cursor.updateitem(item)
+                del item
         edit.stopOperation()
         edit.stopEditing(True)
         arcpy.DeleteField_management(fc, "Picture")
@@ -720,10 +720,11 @@ for fc in featureClass2:
         edit.startEditing(False, True)
         edit.startOperation()
         with arcpy.da.UpdateCursor(fc, ['Picture1','Picture']) as cursor:
-            for row in cursor:
-                row[0] = row[1]
-                cursor.updateRow(row)
-                del row
+            for item in cursor:
+                item[0] = item[1]
+                cursor.updateitem(item)
+                del item
         edit.stopOperation()
         edit.stopEditing(True)
         arcpy.DeleteField_management(fc, "Picture")
+
