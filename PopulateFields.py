@@ -1,3 +1,4 @@
+#Populate fields in featureclass 
 import arcpy
 arcpy.env.workspace = r"C:\Users\vincent.law\Documents\CW\CW_Rochon_Sands_PP5.gdb"
 
