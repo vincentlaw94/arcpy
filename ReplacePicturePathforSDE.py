@@ -1,3 +1,4 @@
+#Script is used to replace old directory to new directory for pictures in "Picture" field in SDE
 import arcpy
 
 arcpy.env.workspace = r"M:\Parks\HQ\OPERATIONS\CPI\Asset_Management\GNSS Projects\Parks Inventory\MergedParks\_MasterCopy_Restored\SDE Connection\ParksCityWorks.GDB@GENESIS-SDE-DEV.sde"
