@@ -6,7 +6,7 @@ import os
 #Change workspace variable to folder containing all the gdbs you want to extract
 workspace = r"C:\Users\vincent.law\Documents\CW2017GDB\goodcentral\test - Copy"
 pictureLocation = r"\\env.gov.ab.ca\Parks\CityWorks\Referenced" + "\\"
-featureClass = []
+table = []
 arcpy.env.overwriteOutput = True
 walk = arcpy.da.Walk(workspace, datatype=['FeatureClass'], type="Any")
 for dirpath, dirnames, filenames in walk:
