@@ -1,0 +1,38 @@
+import csv 
+csvfile = r'C:\Users\Vincent Law\Desktop\testtt\test.csv'
+fc = r''
+def csvDataLoader(self, fc, csvfile):
+    with open(csvfile,'rb') as csvFile:
+        
+        csvheader1 = [x.strip() for x in next(csvFile).split(',')]
+        for row in csv.reader(csvFile):
+            print row
+
+    gdbFields = arcpy.ListFields(fc)
+    for x in range (0,len(csvheader1)):
+        insertList.append('csvrow['+str(x)+']')
+    insertList2.append('(csvrow["x"],csvrow["y"]')
+
+
+
+    newFields = [x for x in csvheader1 if x not in gdbFields]
+    for x in newFields:
+        arcpy.AddField_management(fc,x,'TEXT','','','200')
+    gdbNewFields = gdbFields + newFields
+    insertFields = csvheader1.append("SHAPE@XY")
+    fcWellIDValues = [row[0] for row in arcpy.da.SearchCursor(fc, "Well_ID")]
+    csvDict = csv.DictReader(open(csvfile))
+    for csvrow in csvDict:
+        ##### if "Well_ID" already exist, then update new field value ########### 
+        if csvrow["Well_ID"] in fcWEllIDValues:
+            with arcpy.da.UpdateCursor(fc, gdbNewFields) as cursor:
+                for row in cursor:
+                    if row["Well_ID"] == csv["Well_ID"]:
+                        for x in newFields:
+                            row[x] == csvrow[x]
+                        cursor.updateRow(row)
+        ##### if "Well_ID" does not exist, insert new "Well_ID" #################           
+        elif csvrow["Well_ID"] not in csvheader2:
+            with arcpy.da.InsertCursor(fc,csvheader1)as cursor:
+                cursor.insertRow(insertList2)
+            
